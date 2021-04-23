@@ -1,0 +1,9 @@
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Core\bin\Debug\netcoreapp3.1\BarelyGambling.Core.deps.json
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Core\bin\Debug\netcoreapp3.1\BarelyGambling.Core.dll
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Core\bin\Debug\netcoreapp3.1\BarelyGambling.Core.pdb
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Core\obj\Debug\netcoreapp3.1\BarelyGambling.Core.csprojAssemblyReference.cache
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Core\obj\Debug\netcoreapp3.1\BarelyGambling.Core.AssemblyInfoInputs.cache
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Core\obj\Debug\netcoreapp3.1\BarelyGambling.Core.AssemblyInfo.cs
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Core\obj\Debug\netcoreapp3.1\BarelyGambling.Core.csproj.CoreCompileInputs.cache
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Core\obj\Debug\netcoreapp3.1\BarelyGambling.Core.dll
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Core\obj\Debug\netcoreapp3.1\BarelyGambling.Core.pdb

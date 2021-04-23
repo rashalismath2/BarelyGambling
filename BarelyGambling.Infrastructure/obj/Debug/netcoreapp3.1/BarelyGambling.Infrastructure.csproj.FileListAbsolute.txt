@@ -1,0 +1,15 @@
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\bin\Debug\netcoreapp3.1\BarelyGambling.Infrastructure.deps.json
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\bin\Debug\netcoreapp3.1\BarelyGambling.Infrastructure.runtimeconfig.json
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\bin\Debug\netcoreapp3.1\BarelyGambling.Infrastructure.runtimeconfig.dev.json
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\bin\Debug\netcoreapp3.1\BarelyGambling.Infrastructure.dll
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\bin\Debug\netcoreapp3.1\BarelyGambling.Infrastructure.pdb
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\bin\Debug\netcoreapp3.1\BarelyGambling.Core.dll
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\bin\Debug\netcoreapp3.1\BarelyGambling.Core.pdb
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\obj\Debug\netcoreapp3.1\BarelyGambling.Infrastructure.csprojAssemblyReference.cache
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\obj\Debug\netcoreapp3.1\BarelyGambling.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\obj\Debug\netcoreapp3.1\BarelyGambling.Infrastructure.AssemblyInfo.cs
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\obj\Debug\netcoreapp3.1\BarelyGambling.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\obj\Debug\netcoreapp3.1\BarelyGambling.Infrastructure.csproj.CopyComplete
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\obj\Debug\netcoreapp3.1\BarelyGambling.Infrastructure.dll
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\obj\Debug\netcoreapp3.1\BarelyGambling.Infrastructure.pdb
+C:\Users\Inexis Dev\source\repos\BarelyGambling.API\BarelyGambling.Infrastructure\obj\Debug\netcoreapp3.1\BarelyGambling.Infrastructure.genruntimeconfig.cache
