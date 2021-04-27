@@ -26,7 +26,7 @@ namespace BarelyGambling.Core.Entity
         public Tournament Tournament { get; set; }
         public List<TeamMember> TeamMembers { get; set; }
         public List<Bidding> Biddings { get; set; }
-
+        public float BiddingRestrictedTos { get; set; }
         public bool Won { get; set; }
 
     }

@@ -19,8 +19,10 @@ namespace BarelyGambling.Core.Entity
         [Required]
         public float TournamentPrize { get; set; }
         public List<Team> Teams { get; set; }
-
- 
+        [Required]
+        public Guid CreatedBy { get; set; }
+        [ForeignKey("CreatedBy")]
+        public  User User { get; set; }
 
     }
 }

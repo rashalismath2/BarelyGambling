@@ -1,4 +1,4 @@
-﻿using BarelyGambling.Core.Common;
+﻿
 using BarelyGambling.Core.Entity;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -40,7 +40,7 @@ namespace BarelyGambling.Infrastructure
                 "FIS Alpine Ski World Cup"
             };
 
-
+            List<Guid> userIds = new List<Guid>();
             //creating users
             for (int i = 1; i < 20; i++)
             {
@@ -51,9 +51,12 @@ namespace BarelyGambling.Infrastructure
                 var firstName = names[randOne];
                 var lastName = names[randTwo];
 
+                Guid id = Guid.NewGuid();
+                userIds.Add(id);
+
                 modelBuilder.Entity<User>().HasData(new User()
                 {
-                    Id = Guid.NewGuid(),
+                    Id = id,
                     FirstName = firstName,
                     LastName = lastName,
                     Email = firstName + lastName + i + "@gmail.com",
@@ -76,8 +79,9 @@ namespace BarelyGambling.Infrastructure
                     Title = tournaments[i - 1],
                     Description = "Sample description for " + tournaments[i - 1],
                     StartingDate = DateTime.Now.AddDays(rand),
-                    TournamentPrize = randPrice
-                });
+                    TournamentPrize = randPrice,
+                    CreatedBy= userIds[i]
+                });;
 
                
                 //creating teams for tournamentrs

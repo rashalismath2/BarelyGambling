@@ -20,5 +20,6 @@ namespace BarelyGambling.Core.Entity
         [Required]
         public string UserName { get; set; }
 
+        List<Tournament> Tournaments { get; set; }
     }
 }
