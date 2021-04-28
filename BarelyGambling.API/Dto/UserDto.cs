@@ -12,7 +12,7 @@ namespace BarelyGambling.API.Dto
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UserName { get; set; }
-
+        public string CoverUrl { get; set; }
         List<Tournament> Tournaments { get; set; }
     }
 }

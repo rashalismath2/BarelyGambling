@@ -12,7 +12,7 @@ namespace BarelyGambling.API.Dto
         public string Title { get; set; }
         public string Description { get; set; }
         public float Total { get; set; }
-        public List<TeamMember> TeamMembers { get; set; }
+        public List<TeamMemberDto> TeamMembers { get; set; }
         public List<Bidding> Biddings { get; set; }
         public float BiddingRestrictedTos { get; set; }
         public bool Won { get; set; }

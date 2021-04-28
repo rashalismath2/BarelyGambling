@@ -4,14 +4,16 @@ using BarelyGambling.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BarelyGambling.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210428101257_init3")]
+    partial class init3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,102 +80,102 @@ namespace BarelyGambling.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c8219028-403c-4fd5-94b9-4fd70d03b27f"),
+                            Id = new Guid("5db63212-9e2f-4200-8e58-93b05c25e8c7"),
                             BiddingRestrictedTos = 0f,
                             Description = "Sample description for A1 Grand Prix Team 1",
                             Title = "A1 Grand Prix Team 1",
                             Total = 0f,
-                            TournamentId = new Guid("7f1d17ca-1e52-4bd8-8b4a-d81eb0e9f82a"),
+                            TournamentId = new Guid("d2bea1cd-0754-4cb8-831a-fb621f8fc34c"),
                             Won = true
                         },
                         new
                         {
-                            Id = new Guid("1b01f190-21c0-4dd4-bbea-9925c7b5f6e6"),
+                            Id = new Guid("0fd4f642-20a5-4076-8e30-cdecf6fee415"),
                             BiddingRestrictedTos = 0f,
                             Description = "Sample description for A1 Grand Prix Team 2",
                             Title = "A1 Grand Prix Team 2",
                             Total = 0f,
-                            TournamentId = new Guid("7f1d17ca-1e52-4bd8-8b4a-d81eb0e9f82a"),
+                            TournamentId = new Guid("d2bea1cd-0754-4cb8-831a-fb621f8fc34c"),
                             Won = false
                         },
                         new
                         {
-                            Id = new Guid("fe91e66d-d2d8-4162-bba5-9e96da4518e3"),
+                            Id = new Guid("c08374e7-a236-482d-878a-6db6c7b4e573"),
                             BiddingRestrictedTos = 0f,
                             Description = "Sample description for Formula One World Championship Team 1",
                             Title = "Formula One World Championship Team 1",
                             Total = 0f,
-                            TournamentId = new Guid("e4ccba94-bafd-40e2-bd32-06024a39b666"),
+                            TournamentId = new Guid("416e23f6-0aa1-4e15-af12-2afde162d6a5"),
                             Won = true
                         },
                         new
                         {
-                            Id = new Guid("1708dd0b-5aae-4c7f-a048-8c1a25edbbd6"),
+                            Id = new Guid("73c7be01-268a-4d31-921e-d3fa860a0768"),
                             BiddingRestrictedTos = 0f,
                             Description = "Sample description for Formula One World Championship Team 2",
                             Title = "Formula One World Championship Team 2",
                             Total = 0f,
-                            TournamentId = new Guid("e4ccba94-bafd-40e2-bd32-06024a39b666"),
+                            TournamentId = new Guid("416e23f6-0aa1-4e15-af12-2afde162d6a5"),
                             Won = false
                         },
                         new
                         {
-                            Id = new Guid("82c52b3b-73cb-463a-b9d1-796db480de68"),
+                            Id = new Guid("ee7ba12c-ef9d-405e-b45d-3acb8fb3394d"),
                             BiddingRestrictedTos = 0f,
                             Description = "Sample description for FIA World Endurance Championship Team 1",
                             Title = "FIA World Endurance Championship Team 1",
                             Total = 0f,
-                            TournamentId = new Guid("be602a77-3e60-4dd8-b7df-05fcaded346c"),
+                            TournamentId = new Guid("cbfb02a9-7ea4-4c27-bd99-f726127e6af3"),
                             Won = true
                         },
                         new
                         {
-                            Id = new Guid("c4f882ff-3874-41f5-8cfa-9e153b77813e"),
+                            Id = new Guid("b2a8bff2-dfd9-4ca2-bde3-bf217b592554"),
                             BiddingRestrictedTos = 0f,
                             Description = "Sample description for FIA World Endurance Championship Team 2",
                             Title = "FIA World Endurance Championship Team 2",
                             Total = 0f,
-                            TournamentId = new Guid("be602a77-3e60-4dd8-b7df-05fcaded346c"),
+                            TournamentId = new Guid("cbfb02a9-7ea4-4c27-bd99-f726127e6af3"),
                             Won = false
                         },
                         new
                         {
-                            Id = new Guid("78ecced3-cd1f-49c1-9d7a-76f9cf673526"),
+                            Id = new Guid("eb2bee40-6b9d-4422-b7c7-f1a4a54c01ff"),
                             BiddingRestrictedTos = 0f,
                             Description = "Sample description for FIA GT1 World Championship Team 1",
                             Title = "FIA GT1 World Championship Team 1",
                             Total = 0f,
-                            TournamentId = new Guid("855265fb-11bb-4674-8e1b-733809aaa864"),
+                            TournamentId = new Guid("32a8201b-939c-46c2-bd90-38660021836a"),
                             Won = true
                         },
                         new
                         {
-                            Id = new Guid("3597d6a8-c894-4cf2-9339-1d4579f55a46"),
+                            Id = new Guid("b4715dd4-cb27-43b8-bd8b-172da55c983a"),
                             BiddingRestrictedTos = 0f,
                             Description = "Sample description for FIA GT1 World Championship Team 2",
                             Title = "FIA GT1 World Championship Team 2",
                             Total = 0f,
-                            TournamentId = new Guid("855265fb-11bb-4674-8e1b-733809aaa864"),
+                            TournamentId = new Guid("32a8201b-939c-46c2-bd90-38660021836a"),
                             Won = false
                         },
                         new
                         {
-                            Id = new Guid("ea875d07-1f2d-4cf7-8c03-853951b707a7"),
+                            Id = new Guid("ec477169-6883-49c0-9d0e-0ed966fd7e14"),
                             BiddingRestrictedTos = 0f,
                             Description = "Sample description for World Gliding Championships Team 1",
                             Title = "World Gliding Championships Team 1",
                             Total = 0f,
-                            TournamentId = new Guid("497403c9-664d-424a-b382-97b1d1e16eb7"),
+                            TournamentId = new Guid("b1c5b2e6-ad5f-416f-b66c-eeb0b1444b79"),
                             Won = true
                         },
                         new
                         {
-                            Id = new Guid("43b093b2-5b46-4231-8108-6891cd9ad3a7"),
+                            Id = new Guid("1a9ddbe8-ba40-4735-9022-25333119f96e"),
                             BiddingRestrictedTos = 0f,
                             Description = "Sample description for World Gliding Championships Team 2",
                             Title = "World Gliding Championships Team 2",
                             Total = 0f,
-                            TournamentId = new Guid("497403c9-664d-424a-b382-97b1d1e16eb7"),
+                            TournamentId = new Guid("b1c5b2e6-ad5f-416f-b66c-eeb0b1444b79"),
                             Won = false
                         });
                 });
@@ -183,11 +185,6 @@ namespace BarelyGambling.Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("PlayerType")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(1);
 
                     b.Property<Guid>("TeamId")
                         .HasColumnType("uniqueidentifier");
@@ -206,143 +203,123 @@ namespace BarelyGambling.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("865ee35a-69e8-4504-a348-41454ed8c966"),
-                            PlayerType = 0,
-                            TeamId = new Guid("c8219028-403c-4fd5-94b9-4fd70d03b27f"),
-                            UserId = new Guid("e141319b-7f62-4974-b8f2-4d9c33eae162")
+                            Id = new Guid("73443d29-1337-4119-9139-6ebb54b2ca64"),
+                            TeamId = new Guid("5db63212-9e2f-4200-8e58-93b05c25e8c7"),
+                            UserId = new Guid("6c78ad50-8a96-4a1b-a9ee-2fbeb63aa6ed")
                         },
                         new
                         {
-                            Id = new Guid("1b59dfd1-8b73-4c31-b40b-ce03527aabde"),
-                            PlayerType = 0,
-                            TeamId = new Guid("c8219028-403c-4fd5-94b9-4fd70d03b27f"),
-                            UserId = new Guid("e141319b-7f62-4974-b8f2-4d9c33eae162")
+                            Id = new Guid("e0989077-21ad-415c-ae2a-ea1723a93b72"),
+                            TeamId = new Guid("5db63212-9e2f-4200-8e58-93b05c25e8c7"),
+                            UserId = new Guid("6c78ad50-8a96-4a1b-a9ee-2fbeb63aa6ed")
                         },
                         new
                         {
-                            Id = new Guid("e6c715e2-2fca-4506-9595-12d012a50385"),
-                            PlayerType = 0,
-                            TeamId = new Guid("1b01f190-21c0-4dd4-bbea-9925c7b5f6e6"),
-                            UserId = new Guid("e141319b-7f62-4974-b8f2-4d9c33eae162")
+                            Id = new Guid("f852819b-2411-44be-8ebc-b8302cb0bf16"),
+                            TeamId = new Guid("0fd4f642-20a5-4076-8e30-cdecf6fee415"),
+                            UserId = new Guid("6c78ad50-8a96-4a1b-a9ee-2fbeb63aa6ed")
                         },
                         new
                         {
-                            Id = new Guid("5c24f5b0-83c7-49e5-867c-0a3798a08ff2"),
-                            PlayerType = 0,
-                            TeamId = new Guid("1b01f190-21c0-4dd4-bbea-9925c7b5f6e6"),
-                            UserId = new Guid("e141319b-7f62-4974-b8f2-4d9c33eae162")
+                            Id = new Guid("0400f394-be0a-4603-a543-ab9d422cc17b"),
+                            TeamId = new Guid("0fd4f642-20a5-4076-8e30-cdecf6fee415"),
+                            UserId = new Guid("6c78ad50-8a96-4a1b-a9ee-2fbeb63aa6ed")
                         },
                         new
                         {
-                            Id = new Guid("21bb6c70-9f65-4a70-8dd5-3074093aa664"),
-                            PlayerType = 0,
-                            TeamId = new Guid("fe91e66d-d2d8-4162-bba5-9e96da4518e3"),
-                            UserId = new Guid("13fd7506-ff7f-4902-8310-3a27d44c74a0")
+                            Id = new Guid("b90e5ff3-644c-47b8-b9fd-307f1b20557b"),
+                            TeamId = new Guid("c08374e7-a236-482d-878a-6db6c7b4e573"),
+                            UserId = new Guid("d0ead67c-717f-4df1-816c-844652df604f")
                         },
                         new
                         {
-                            Id = new Guid("1e7d775f-ddc6-4ee5-b6c4-0ea352ca18e8"),
-                            PlayerType = 0,
-                            TeamId = new Guid("fe91e66d-d2d8-4162-bba5-9e96da4518e3"),
-                            UserId = new Guid("13fd7506-ff7f-4902-8310-3a27d44c74a0")
+                            Id = new Guid("f7adc539-d33c-4e08-823c-c460bbc2d255"),
+                            TeamId = new Guid("c08374e7-a236-482d-878a-6db6c7b4e573"),
+                            UserId = new Guid("d0ead67c-717f-4df1-816c-844652df604f")
                         },
                         new
                         {
-                            Id = new Guid("1ff31e15-6643-4183-bd76-348fe86def26"),
-                            PlayerType = 0,
-                            TeamId = new Guid("1708dd0b-5aae-4c7f-a048-8c1a25edbbd6"),
-                            UserId = new Guid("13fd7506-ff7f-4902-8310-3a27d44c74a0")
+                            Id = new Guid("6d237c92-a109-439c-aa1f-a552656adcd5"),
+                            TeamId = new Guid("73c7be01-268a-4d31-921e-d3fa860a0768"),
+                            UserId = new Guid("d0ead67c-717f-4df1-816c-844652df604f")
                         },
                         new
                         {
-                            Id = new Guid("66986791-33b2-464b-a913-31f704e3f57b"),
-                            PlayerType = 0,
-                            TeamId = new Guid("1708dd0b-5aae-4c7f-a048-8c1a25edbbd6"),
-                            UserId = new Guid("13fd7506-ff7f-4902-8310-3a27d44c74a0")
+                            Id = new Guid("3b8b92a2-65e6-48bb-96c5-f2412bd90d45"),
+                            TeamId = new Guid("73c7be01-268a-4d31-921e-d3fa860a0768"),
+                            UserId = new Guid("d0ead67c-717f-4df1-816c-844652df604f")
                         },
                         new
                         {
-                            Id = new Guid("5396afde-1a2a-4e00-a210-c0eadd90e7a2"),
-                            PlayerType = 0,
-                            TeamId = new Guid("82c52b3b-73cb-463a-b9d1-796db480de68"),
-                            UserId = new Guid("2964fbe5-ae9a-4d00-b757-be056ca41efc")
+                            Id = new Guid("981b1857-0158-4f67-aa29-d561e4007191"),
+                            TeamId = new Guid("ee7ba12c-ef9d-405e-b45d-3acb8fb3394d"),
+                            UserId = new Guid("a6bcdd93-d29e-402a-b866-c765817a2461")
                         },
                         new
                         {
-                            Id = new Guid("7efd119c-8f29-4489-8836-5d0af5140dfa"),
-                            PlayerType = 0,
-                            TeamId = new Guid("82c52b3b-73cb-463a-b9d1-796db480de68"),
-                            UserId = new Guid("2964fbe5-ae9a-4d00-b757-be056ca41efc")
+                            Id = new Guid("a41ecf7d-5eb9-4b4b-944c-a6abc107261d"),
+                            TeamId = new Guid("ee7ba12c-ef9d-405e-b45d-3acb8fb3394d"),
+                            UserId = new Guid("a6bcdd93-d29e-402a-b866-c765817a2461")
                         },
                         new
                         {
-                            Id = new Guid("693be519-2164-4a0b-8aca-2765eedf1b2b"),
-                            PlayerType = 0,
-                            TeamId = new Guid("c4f882ff-3874-41f5-8cfa-9e153b77813e"),
-                            UserId = new Guid("2964fbe5-ae9a-4d00-b757-be056ca41efc")
+                            Id = new Guid("89933ebb-8f12-45a8-9601-8c472e4ed913"),
+                            TeamId = new Guid("b2a8bff2-dfd9-4ca2-bde3-bf217b592554"),
+                            UserId = new Guid("a6bcdd93-d29e-402a-b866-c765817a2461")
                         },
                         new
                         {
-                            Id = new Guid("4f99011d-97a7-454d-90e0-d8759228de76"),
-                            PlayerType = 0,
-                            TeamId = new Guid("c4f882ff-3874-41f5-8cfa-9e153b77813e"),
-                            UserId = new Guid("2964fbe5-ae9a-4d00-b757-be056ca41efc")
+                            Id = new Guid("e698c7c0-6796-4ebb-9e0d-fcbcd7b0242b"),
+                            TeamId = new Guid("b2a8bff2-dfd9-4ca2-bde3-bf217b592554"),
+                            UserId = new Guid("a6bcdd93-d29e-402a-b866-c765817a2461")
                         },
                         new
                         {
-                            Id = new Guid("52cc2357-528e-4619-884f-1a7a39451215"),
-                            PlayerType = 0,
-                            TeamId = new Guid("78ecced3-cd1f-49c1-9d7a-76f9cf673526"),
-                            UserId = new Guid("052da1f0-5390-408c-95bb-a66471ca209f")
+                            Id = new Guid("091a2d02-fd04-4a38-a7b3-13da3cda8802"),
+                            TeamId = new Guid("eb2bee40-6b9d-4422-b7c7-f1a4a54c01ff"),
+                            UserId = new Guid("24485364-9105-4ccd-b5c2-171b691f185d")
                         },
                         new
                         {
-                            Id = new Guid("7486556a-5e42-43d4-8506-041ebd67ab7c"),
-                            PlayerType = 0,
-                            TeamId = new Guid("78ecced3-cd1f-49c1-9d7a-76f9cf673526"),
-                            UserId = new Guid("052da1f0-5390-408c-95bb-a66471ca209f")
+                            Id = new Guid("4d57e93f-ce8b-41da-a685-7b03661f4535"),
+                            TeamId = new Guid("eb2bee40-6b9d-4422-b7c7-f1a4a54c01ff"),
+                            UserId = new Guid("24485364-9105-4ccd-b5c2-171b691f185d")
                         },
                         new
                         {
-                            Id = new Guid("11c50e8a-2a2c-4878-acfb-eddda95463da"),
-                            PlayerType = 0,
-                            TeamId = new Guid("3597d6a8-c894-4cf2-9339-1d4579f55a46"),
-                            UserId = new Guid("052da1f0-5390-408c-95bb-a66471ca209f")
+                            Id = new Guid("27852c66-bac6-49a4-964c-6b8635993e59"),
+                            TeamId = new Guid("b4715dd4-cb27-43b8-bd8b-172da55c983a"),
+                            UserId = new Guid("24485364-9105-4ccd-b5c2-171b691f185d")
                         },
                         new
                         {
-                            Id = new Guid("554edbdf-37ad-43da-9400-b86f4df8b47f"),
-                            PlayerType = 0,
-                            TeamId = new Guid("3597d6a8-c894-4cf2-9339-1d4579f55a46"),
-                            UserId = new Guid("052da1f0-5390-408c-95bb-a66471ca209f")
+                            Id = new Guid("8ef2c523-5d0d-481a-9b09-9c02c53453fd"),
+                            TeamId = new Guid("b4715dd4-cb27-43b8-bd8b-172da55c983a"),
+                            UserId = new Guid("24485364-9105-4ccd-b5c2-171b691f185d")
                         },
                         new
                         {
-                            Id = new Guid("f2c959cf-e722-4fbe-b1c8-ce711744cd6a"),
-                            PlayerType = 0,
-                            TeamId = new Guid("ea875d07-1f2d-4cf7-8c03-853951b707a7"),
-                            UserId = new Guid("db6d5a9a-8fc7-4360-8ada-699af03aa84d")
+                            Id = new Guid("ad868821-302f-4f31-89e3-b4e82c338572"),
+                            TeamId = new Guid("ec477169-6883-49c0-9d0e-0ed966fd7e14"),
+                            UserId = new Guid("594a8031-bbbe-4a93-b63b-848d83c57144")
                         },
                         new
                         {
-                            Id = new Guid("1768f985-1927-4733-8c8f-de6f7b8d1651"),
-                            PlayerType = 0,
-                            TeamId = new Guid("ea875d07-1f2d-4cf7-8c03-853951b707a7"),
-                            UserId = new Guid("db6d5a9a-8fc7-4360-8ada-699af03aa84d")
+                            Id = new Guid("76c1f6bd-9280-4111-ad5c-151d5140a824"),
+                            TeamId = new Guid("ec477169-6883-49c0-9d0e-0ed966fd7e14"),
+                            UserId = new Guid("594a8031-bbbe-4a93-b63b-848d83c57144")
                         },
                         new
                         {
-                            Id = new Guid("e5386410-eefa-4cf7-bef5-48c1be69a6d9"),
-                            PlayerType = 0,
-                            TeamId = new Guid("43b093b2-5b46-4231-8108-6891cd9ad3a7"),
-                            UserId = new Guid("db6d5a9a-8fc7-4360-8ada-699af03aa84d")
+                            Id = new Guid("612fc868-6ac0-4c38-8ec1-9245f804e0d3"),
+                            TeamId = new Guid("1a9ddbe8-ba40-4735-9022-25333119f96e"),
+                            UserId = new Guid("594a8031-bbbe-4a93-b63b-848d83c57144")
                         },
                         new
                         {
-                            Id = new Guid("01618232-9216-473f-8271-0dab60419d79"),
-                            PlayerType = 0,
-                            TeamId = new Guid("43b093b2-5b46-4231-8108-6891cd9ad3a7"),
-                            UserId = new Guid("db6d5a9a-8fc7-4360-8ada-699af03aa84d")
+                            Id = new Guid("f438c7db-1556-4535-8382-7f83d229bcd8"),
+                            TeamId = new Guid("1a9ddbe8-ba40-4735-9022-25333119f96e"),
+                            UserId = new Guid("594a8031-bbbe-4a93-b63b-848d83c57144")
                         });
                 });
 
@@ -385,58 +362,58 @@ namespace BarelyGambling.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7f1d17ca-1e52-4bd8-8b4a-d81eb0e9f82a"),
-                            CreatedAt = new DateTime(2021, 4, 28, 15, 57, 33, 945, DateTimeKind.Local).AddTicks(8106),
-                            CreatedBy = new Guid("e141319b-7f62-4974-b8f2-4d9c33eae162"),
+                            Id = new Guid("d2bea1cd-0754-4cb8-831a-fb621f8fc34c"),
+                            CreatedAt = new DateTime(2021, 4, 28, 15, 42, 57, 36, DateTimeKind.Local).AddTicks(820),
+                            CreatedBy = new Guid("6c78ad50-8a96-4a1b-a9ee-2fbeb63aa6ed"),
                             Description = "Sample description for A1 Grand Prix",
                             Place = "Los Angeles",
-                            StartingDate = new DateTime(2021, 4, 28, 15, 57, 33, 942, DateTimeKind.Local).AddTicks(8548),
+                            StartingDate = new DateTime(2021, 5, 3, 15, 42, 57, 34, DateTimeKind.Local).AddTicks(7186),
                             Title = "A1 Grand Prix",
-                            TournamentPrize = 75350750f
+                            TournamentPrize = 29628888f
                         },
                         new
                         {
-                            Id = new Guid("e4ccba94-bafd-40e2-bd32-06024a39b666"),
-                            CreatedAt = new DateTime(2021, 4, 28, 15, 57, 33, 949, DateTimeKind.Local).AddTicks(569),
-                            CreatedBy = new Guid("13fd7506-ff7f-4902-8310-3a27d44c74a0"),
+                            Id = new Guid("416e23f6-0aa1-4e15-af12-2afde162d6a5"),
+                            CreatedAt = new DateTime(2021, 4, 28, 15, 42, 57, 37, DateTimeKind.Local).AddTicks(5846),
+                            CreatedBy = new Guid("d0ead67c-717f-4df1-816c-844652df604f"),
                             Description = "Sample description for Formula One World Championship",
                             Place = "Los Angeles",
-                            StartingDate = new DateTime(2021, 5, 2, 15, 57, 33, 949, DateTimeKind.Local).AddTicks(482),
+                            StartingDate = new DateTime(2021, 4, 28, 15, 42, 57, 37, DateTimeKind.Local).AddTicks(5804),
                             Title = "Formula One World Championship",
-                            TournamentPrize = 16688204f
+                            TournamentPrize = 52812552f
                         },
                         new
                         {
-                            Id = new Guid("be602a77-3e60-4dd8-b7df-05fcaded346c"),
-                            CreatedAt = new DateTime(2021, 4, 28, 15, 57, 33, 949, DateTimeKind.Local).AddTicks(1467),
-                            CreatedBy = new Guid("2964fbe5-ae9a-4d00-b757-be056ca41efc"),
+                            Id = new Guid("cbfb02a9-7ea4-4c27-bd99-f726127e6af3"),
+                            CreatedAt = new DateTime(2021, 4, 28, 15, 42, 57, 37, DateTimeKind.Local).AddTicks(6565),
+                            CreatedBy = new Guid("a6bcdd93-d29e-402a-b866-c765817a2461"),
                             Description = "Sample description for FIA World Endurance Championship",
                             Place = "Los Angeles",
-                            StartingDate = new DateTime(2021, 4, 30, 15, 57, 33, 949, DateTimeKind.Local).AddTicks(1457),
+                            StartingDate = new DateTime(2021, 5, 6, 15, 42, 57, 37, DateTimeKind.Local).AddTicks(6559),
                             Title = "FIA World Endurance Championship",
-                            TournamentPrize = 47655380f
+                            TournamentPrize = 5298869f
                         },
                         new
                         {
-                            Id = new Guid("855265fb-11bb-4674-8e1b-733809aaa864"),
-                            CreatedAt = new DateTime(2021, 4, 28, 15, 57, 33, 949, DateTimeKind.Local).AddTicks(2591),
-                            CreatedBy = new Guid("052da1f0-5390-408c-95bb-a66471ca209f"),
+                            Id = new Guid("32a8201b-939c-46c2-bd90-38660021836a"),
+                            CreatedAt = new DateTime(2021, 4, 28, 15, 42, 57, 37, DateTimeKind.Local).AddTicks(6908),
+                            CreatedBy = new Guid("24485364-9105-4ccd-b5c2-171b691f185d"),
                             Description = "Sample description for FIA GT1 World Championship",
                             Place = "Los Angeles",
-                            StartingDate = new DateTime(2021, 5, 6, 15, 57, 33, 949, DateTimeKind.Local).AddTicks(2585),
+                            StartingDate = new DateTime(2021, 5, 2, 15, 42, 57, 37, DateTimeKind.Local).AddTicks(6903),
                             Title = "FIA GT1 World Championship",
-                            TournamentPrize = 77526344f
+                            TournamentPrize = 46675196f
                         },
                         new
                         {
-                            Id = new Guid("497403c9-664d-424a-b382-97b1d1e16eb7"),
-                            CreatedAt = new DateTime(2021, 4, 28, 15, 57, 33, 949, DateTimeKind.Local).AddTicks(3350),
-                            CreatedBy = new Guid("db6d5a9a-8fc7-4360-8ada-699af03aa84d"),
+                            Id = new Guid("b1c5b2e6-ad5f-416f-b66c-eeb0b1444b79"),
+                            CreatedAt = new DateTime(2021, 4, 28, 15, 42, 57, 37, DateTimeKind.Local).AddTicks(7247),
+                            CreatedBy = new Guid("594a8031-bbbe-4a93-b63b-848d83c57144"),
                             Description = "Sample description for World Gliding Championships",
                             Place = "Los Angeles",
-                            StartingDate = new DateTime(2021, 5, 5, 15, 57, 33, 949, DateTimeKind.Local).AddTicks(3345),
+                            StartingDate = new DateTime(2021, 5, 7, 15, 42, 57, 37, DateTimeKind.Local).AddTicks(7242),
                             Title = "World Gliding Championships",
-                            TournamentPrize = 81154784f
+                            TournamentPrize = 10156761f
                         });
                 });
 
@@ -476,193 +453,193 @@ namespace BarelyGambling.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("03aa921d-d36b-4ee8-bfed-bed738f91b26"),
+                            Id = new Guid("0c8f33ce-8adf-4600-986c-8f4900c64f1b"),
                             CoverUrl = "https://via.placeholder.com/150",
-                            Email = "CharlesMichael1@gmail.com",
-                            FirstName = "Charles",
-                            LastName = "Michael",
+                            Email = "MichaelJames1@gmail.com",
+                            FirstName = "Michael",
+                            LastName = "James",
                             Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "CharlesMichael1"
+                            UserName = "MichaelJames1"
                         },
                         new
                         {
-                            Id = new Guid("e141319b-7f62-4974-b8f2-4d9c33eae162"),
+                            Id = new Guid("6c78ad50-8a96-4a1b-a9ee-2fbeb63aa6ed"),
                             CoverUrl = "https://via.placeholder.com/150",
-                            Email = "JamesRichard2@gmail.com",
-                            FirstName = "James",
-                            LastName = "Richard",
+                            Email = "MichaelWilliam2@gmail.com",
+                            FirstName = "Michael",
+                            LastName = "William",
                             Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "JamesRichard2"
+                            UserName = "MichaelWilliam2"
                         },
                         new
                         {
-                            Id = new Guid("13fd7506-ff7f-4902-8310-3a27d44c74a0"),
+                            Id = new Guid("d0ead67c-717f-4df1-816c-844652df604f"),
                             CoverUrl = "https://via.placeholder.com/150",
-                            Email = "ThomasRobert3@gmail.com",
-                            FirstName = "Thomas",
-                            LastName = "Robert",
+                            Email = "JohnThomas3@gmail.com",
+                            FirstName = "John",
+                            LastName = "Thomas",
                             Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "ThomasRobert3"
+                            UserName = "JohnThomas3"
                         },
                         new
                         {
-                            Id = new Guid("2964fbe5-ae9a-4d00-b757-be056ca41efc"),
+                            Id = new Guid("a6bcdd93-d29e-402a-b866-c765817a2461"),
                             CoverUrl = "https://via.placeholder.com/150",
-                            Email = "JohnDavid4@gmail.com",
+                            Email = "JosephJohn4@gmail.com",
+                            FirstName = "Joseph",
+                            LastName = "John",
+                            Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
+                            UserName = "JosephJohn4"
+                        },
+                        new
+                        {
+                            Id = new Guid("24485364-9105-4ccd-b5c2-171b691f185d"),
+                            CoverUrl = "https://via.placeholder.com/150",
+                            Email = "JohnDavid5@gmail.com",
                             FirstName = "John",
                             LastName = "David",
                             Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "JohnDavid4"
+                            UserName = "JohnDavid5"
                         },
                         new
                         {
-                            Id = new Guid("052da1f0-5390-408c-95bb-a66471ca209f"),
+                            Id = new Guid("594a8031-bbbe-4a93-b63b-848d83c57144"),
                             CoverUrl = "https://via.placeholder.com/150",
-                            Email = "CharlesWilliam5@gmail.com",
-                            FirstName = "Charles",
+                            Email = "MichaelMichael6@gmail.com",
+                            FirstName = "Michael",
+                            LastName = "Michael",
+                            Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
+                            UserName = "MichaelMichael6"
+                        },
+                        new
+                        {
+                            Id = new Guid("8b92c1d2-222c-4409-931a-fe8c2d662095"),
+                            CoverUrl = "https://via.placeholder.com/150",
+                            Email = "JamesWilliam7@gmail.com",
+                            FirstName = "James",
                             LastName = "William",
                             Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "CharlesWilliam5"
+                            UserName = "JamesWilliam7"
                         },
                         new
                         {
-                            Id = new Guid("db6d5a9a-8fc7-4360-8ada-699af03aa84d"),
+                            Id = new Guid("a89d1159-85cf-48e3-9aad-f770256a1e03"),
                             CoverUrl = "https://via.placeholder.com/150",
-                            Email = "CharlesJames6@gmail.com",
-                            FirstName = "Charles",
+                            Email = "JohnJames8@gmail.com",
+                            FirstName = "John",
                             LastName = "James",
                             Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "CharlesJames6"
+                            UserName = "JohnJames8"
                         },
                         new
                         {
-                            Id = new Guid("523c52d2-6ae1-4f9b-b16c-dc5e3bce9859"),
+                            Id = new Guid("9899c8bf-24d4-49cd-a533-3cd93b4b64e1"),
                             CoverUrl = "https://via.placeholder.com/150",
-                            Email = "MichaelRobert7@gmail.com",
-                            FirstName = "Michael",
+                            Email = "JosephRobert9@gmail.com",
+                            FirstName = "Joseph",
                             LastName = "Robert",
                             Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "MichaelRobert7"
+                            UserName = "JosephRobert9"
                         },
                         new
                         {
-                            Id = new Guid("6b8c2a51-0102-4ee7-bbd4-c6bc92f72b3e"),
+                            Id = new Guid("5ae9487a-6ea4-4e59-852c-48f60f309b70"),
                             CoverUrl = "https://via.placeholder.com/150",
-                            Email = "JamesJames8@gmail.com",
-                            FirstName = "James",
+                            Email = "JosephThomas10@gmail.com",
+                            FirstName = "Joseph",
+                            LastName = "Thomas",
+                            Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
+                            UserName = "JosephThomas10"
+                        },
+                        new
+                        {
+                            Id = new Guid("6b9323ce-1a5f-4bcf-8ce6-81a992421e03"),
+                            CoverUrl = "https://via.placeholder.com/150",
+                            Email = "RichardJames11@gmail.com",
+                            FirstName = "Richard",
                             LastName = "James",
                             Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "JamesJames8"
+                            UserName = "RichardJames11"
                         },
                         new
                         {
-                            Id = new Guid("d54029f5-c4fd-449c-a599-d4e4b8de5c01"),
+                            Id = new Guid("b8a2508e-fd5f-423a-af6e-1671cf6a2b80"),
                             CoverUrl = "https://via.placeholder.com/150",
-                            Email = "WilliamJoseph9@gmail.com",
-                            FirstName = "William",
-                            LastName = "Joseph",
-                            Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "WilliamJoseph9"
-                        },
-                        new
-                        {
-                            Id = new Guid("bc77b2d0-a663-4807-8f9c-1c938aa0491c"),
-                            CoverUrl = "https://via.placeholder.com/150",
-                            Email = "WilliamWilliam10@gmail.com",
-                            FirstName = "William",
+                            Email = "RobertWilliam12@gmail.com",
+                            FirstName = "Robert",
                             LastName = "William",
                             Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "WilliamWilliam10"
+                            UserName = "RobertWilliam12"
                         },
                         new
                         {
-                            Id = new Guid("bd228188-d31a-4d22-83b0-5e97aeeeff35"),
+                            Id = new Guid("2a814a97-cbc6-4be6-9a6d-887eeba43d39"),
                             CoverUrl = "https://via.placeholder.com/150",
-                            Email = "MichaelWilliam11@gmail.com",
+                            Email = "JamesMichael13@gmail.com",
+                            FirstName = "James",
+                            LastName = "Michael",
+                            Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
+                            UserName = "JamesMichael13"
+                        },
+                        new
+                        {
+                            Id = new Guid("50ff2791-a009-4252-b302-2006bb2712f2"),
+                            CoverUrl = "https://via.placeholder.com/150",
+                            Email = "JamesThomas14@gmail.com",
+                            FirstName = "James",
+                            LastName = "Thomas",
+                            Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
+                            UserName = "JamesThomas14"
+                        },
+                        new
+                        {
+                            Id = new Guid("bb5ab594-aecd-4365-ba51-dbeffc40a7c0"),
+                            CoverUrl = "https://via.placeholder.com/150",
+                            Email = "JohnMichael15@gmail.com",
+                            FirstName = "John",
+                            LastName = "Michael",
+                            Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
+                            UserName = "JohnMichael15"
+                        },
+                        new
+                        {
+                            Id = new Guid("2f627f6e-f7a2-407c-8c95-890c08f8c285"),
+                            CoverUrl = "https://via.placeholder.com/150",
+                            Email = "JosephWilliam16@gmail.com",
+                            FirstName = "Joseph",
+                            LastName = "William",
+                            Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
+                            UserName = "JosephWilliam16"
+                        },
+                        new
+                        {
+                            Id = new Guid("1338c622-25cc-46c0-bc09-018127721692"),
+                            CoverUrl = "https://via.placeholder.com/150",
+                            Email = "MichaelMichael17@gmail.com",
                             FirstName = "Michael",
-                            LastName = "William",
+                            LastName = "Michael",
                             Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "MichaelWilliam11"
+                            UserName = "MichaelMichael17"
                         },
                         new
                         {
-                            Id = new Guid("96a25485-f906-4ad2-912a-161ea8db4dc8"),
+                            Id = new Guid("fb345d13-7f7e-4a77-b2cf-ae408bba3490"),
                             CoverUrl = "https://via.placeholder.com/150",
-                            Email = "WilliamWilliam12@gmail.com",
-                            FirstName = "William",
-                            LastName = "William",
-                            Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "WilliamWilliam12"
-                        },
-                        new
-                        {
-                            Id = new Guid("8c815f4f-5151-4b18-a836-823b50321e5a"),
-                            CoverUrl = "https://via.placeholder.com/150",
-                            Email = "ThomasJohn13@gmail.com",
-                            FirstName = "Thomas",
+                            Email = "JosephJohn18@gmail.com",
+                            FirstName = "Joseph",
                             LastName = "John",
                             Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "ThomasJohn13"
+                            UserName = "JosephJohn18"
                         },
                         new
                         {
-                            Id = new Guid("9b37a390-35db-4a54-8a4d-262df4259dc6"),
+                            Id = new Guid("62d890ce-3afc-47fd-86ad-e4808e3b51d3"),
                             CoverUrl = "https://via.placeholder.com/150",
-                            Email = "WilliamRichard14@gmail.com",
-                            FirstName = "William",
-                            LastName = "Richard",
+                            Email = "JohnCharles19@gmail.com",
+                            FirstName = "John",
+                            LastName = "Charles",
                             Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "WilliamRichard14"
-                        },
-                        new
-                        {
-                            Id = new Guid("ce3a2fd5-054e-45d3-b864-a3f5ca8c8258"),
-                            CoverUrl = "https://via.placeholder.com/150",
-                            Email = "RichardDavid15@gmail.com",
-                            FirstName = "Richard",
-                            LastName = "David",
-                            Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "RichardDavid15"
-                        },
-                        new
-                        {
-                            Id = new Guid("1b885697-b962-4942-a65e-0b85485e800b"),
-                            CoverUrl = "https://via.placeholder.com/150",
-                            Email = "DavidRobert16@gmail.com",
-                            FirstName = "David",
-                            LastName = "Robert",
-                            Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "DavidRobert16"
-                        },
-                        new
-                        {
-                            Id = new Guid("313df234-6e70-4872-a491-2cc37d8dc19c"),
-                            CoverUrl = "https://via.placeholder.com/150",
-                            Email = "JamesRichard17@gmail.com",
-                            FirstName = "James",
-                            LastName = "Richard",
-                            Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "JamesRichard17"
-                        },
-                        new
-                        {
-                            Id = new Guid("59a9cda9-6ef7-4eba-8200-f93ce4227149"),
-                            CoverUrl = "https://via.placeholder.com/150",
-                            Email = "MichaelJames18@gmail.com",
-                            FirstName = "Michael",
-                            LastName = "James",
-                            Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "MichaelJames18"
-                        },
-                        new
-                        {
-                            Id = new Guid("f8e54924-912e-4dd4-9739-3109adc88860"),
-                            CoverUrl = "https://via.placeholder.com/150",
-                            Email = "RobertDavid19@gmail.com",
-                            FirstName = "Robert",
-                            LastName = "David",
-                            Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                            UserName = "RobertDavid19"
+                            UserName = "JohnCharles19"
                         });
                 });
 

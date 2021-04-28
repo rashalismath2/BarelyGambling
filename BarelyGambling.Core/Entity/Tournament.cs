@@ -17,8 +17,12 @@ namespace BarelyGambling.Core.Entity
         [Required]
         public DateTime StartingDate { get; set; }
         [Required]
+        public string Place { get; set; }
+        [Required]
         public float TournamentPrize { get; set; }
         public List<Team> Teams { get; set; }
+        [Required]
+        public DateTime CreatedAt { get; set; }
         [Required]
         public Guid CreatedBy { get; set; }
         [ForeignKey("CreatedBy")]

@@ -22,14 +22,18 @@ namespace BarelyGambling.Infrastructure.Repository
             return await _dbContext.Tournament
                 .Include(tournament => tournament.User)
                 .Include(tournament => tournament.Teams)
-                .Where(tournament=>tournament.Id==tournamentId).FirstOrDefaultAsync();
+                .ThenInclude(team => team.TeamMembers)  
+                .ThenInclude(member => member.User)
+                .Include(tournament => tournament.Teams)
+                .ThenInclude(team => team.Biddings)
+                .Where(tournament => tournament.Id == tournamentId).FirstOrDefaultAsync();
         }
 
         public async Task<List<Tournament>> Retrieve()
         {
             return await _dbContext.Tournament
-                .Include(tournament=>tournament.User)
-                .Include(tournament=>tournament.Teams)
+                .Include(tournament => tournament.User)
+                .Include(tournament => tournament.Teams)
                 .ToListAsync();
         }
     }

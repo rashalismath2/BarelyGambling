@@ -19,7 +19,7 @@ namespace BarelyGambling.Core.Entity
         public string Password { get; set; }
         [Required]
         public string UserName { get; set; }
-
+        public string CoverUrl { get; set; }
         List<Tournament> Tournaments { get; set; }
     }
 }

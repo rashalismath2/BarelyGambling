@@ -1,5 +1,6 @@
 ﻿
 using BarelyGambling.Core.Entity;
+using BarelyGambling.Core.Entity.Enums;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,9 @@ namespace BarelyGambling.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<TeamMember>()
+           .Property(b => b.PlayerType)
+           .HasDefaultValue(PlayerType.Member);
 
             modelBuilder.Entity<Tournament>()
            .HasMany(c => c.Teams)
@@ -61,7 +64,8 @@ namespace BarelyGambling.Infrastructure
                     LastName = lastName,
                     Email = firstName + lastName + i + "@gmail.com",
                     Password = "$2a$11$Hx.1.HZkvkfw7T52BbdhLuJQAhdvR5Y.1nSvwCxJ1sK9paLLtqi5S",
-                    UserName = firstName + lastName + i
+                    UserName = firstName + lastName + i,
+                    CoverUrl= "https://via.placeholder.com/150"
                 });
             }
             //creating tournaments
@@ -80,7 +84,9 @@ namespace BarelyGambling.Infrastructure
                     Description = "Sample description for " + tournaments[i - 1],
                     StartingDate = DateTime.Now.AddDays(rand),
                     TournamentPrize = randPrice,
-                    CreatedBy= userIds[i]
+                    CreatedBy= userIds[i],
+                    CreatedAt=DateTime.Now,
+                    Place= "Los Angeles"
                 });;
 
                
@@ -106,7 +112,7 @@ namespace BarelyGambling.Infrastructure
                         {
                             Id = Guid.NewGuid(),
                             TeamId = teamGuid,
-                            UserId = i
+                            UserId = userIds[i]
                         });
                     }
 
