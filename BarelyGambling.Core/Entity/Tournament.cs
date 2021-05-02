@@ -23,10 +23,9 @@ namespace BarelyGambling.Core.Entity
         public List<Team> Teams { get; set; }
         [Required]
         public DateTime CreatedAt { get; set; }
-        [Required]
-        public Guid CreatedBy { get; set; }
         [ForeignKey("CreatedBy")]
-        public  User User { get; set; }
+        [Required]
+        public  AppUser User { get; set; }
         public bool HasEnded { get; set; }
         public bool HasStarted { get; set; }
 

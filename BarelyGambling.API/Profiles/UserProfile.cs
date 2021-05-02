@@ -12,7 +12,12 @@ namespace BarelyGambling.API.Profiles
     {
         public UserProfile()
         {
-            CreateMap<User,UserDto>();
+            CreateMap<AppUser,UserDto>();
+            CreateMap<RegisterUserDto, AppUser>()
+                .ForMember(
+                    dest=>dest.UserName,
+                    opt=>opt.MapFrom(src=>src.Email)
+                );
         }
     }
 }

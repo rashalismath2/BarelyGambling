@@ -21,13 +21,12 @@ namespace BarelyGambling.Core.Entity
         public string Description { get; set; }
         public float Total { get; set; }
         [Required]
-        public Guid TournamentId { get; set; }
-        [ForeignKey("TournamentId")]
         public Tournament Tournament { get; set; }
         public List<TeamMember> TeamMembers { get; set; }
         public List<Bidding> Biddings { get; set; }
         public float BiddingRestrictedTo { get; set; }
         public bool Won { get; set; }
+
 
     }
 }
