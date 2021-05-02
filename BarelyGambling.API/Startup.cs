@@ -52,22 +52,24 @@ namespace BarelyGambling.API
             services.AddIdentity<AppUser, IdentityRole>()
                      .AddEntityFrameworkStores<AppDbContext>();
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-              .AddJwtBearer(options =>
+            services.AddAuthentication(cfg =>
+            {
+                cfg.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                cfg.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+             .AddJwtBearer(options =>
               {
                   options.TokenValidationParameters = new TokenValidationParameters
                   {
                       ValidateIssuer = true,
+                      ValidIssuer = Configuration["JWT:ValidIssuer"],
                       ValidateAudience = true,
-                      ValidateLifetime = true,
+                      ValidAudience = Configuration["JWT:ValidAudience"],
                       ValidateIssuerSigningKey = true,
-                      ValidIssuer = Configuration["Jwt:ValidIssuer"],
-                      ValidAudience = Configuration["Jwt:ValidAudience"],
-                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Secret"]))
+                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"])),
                   };
               });
-
-
+ 
 
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -99,6 +101,7 @@ namespace BarelyGambling.API
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

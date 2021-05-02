@@ -2,6 +2,7 @@
 using BarelyGambling.API.Dto;
 using BarelyGambling.Core.Entity;
 using BarelyGambling.Core.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace BarelyGambling.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/tournaments")]
     public class TournamentController : ControllerBase
@@ -25,6 +27,7 @@ namespace BarelyGambling.API.Controllers
 
         public IMapper _mapper { get; }
 
+  
         [HttpGet]
         [HttpHead]
         public async Task<ActionResult<IEnumerable<TournamentDto>>> GetAll()
