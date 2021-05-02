@@ -27,6 +27,8 @@ namespace BarelyGambling.Core.Entity
         public Guid CreatedBy { get; set; }
         [ForeignKey("CreatedBy")]
         public  User User { get; set; }
+        public bool HasEnded { get; set; }
+        public bool HasStarted { get; set; }
 
     }
 }

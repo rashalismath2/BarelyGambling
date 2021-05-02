@@ -14,7 +14,7 @@ namespace BarelyGambling.API.Dto
         public float Total { get; set; }
         public List<TeamMemberDto> TeamMembers { get; set; }
         public List<Bidding> Biddings { get; set; }
-        public float BiddingRestrictedTos { get; set; }
+        public float BiddingRestrictedTo { get; set; }
         public bool Won { get; set; }
     }
 }

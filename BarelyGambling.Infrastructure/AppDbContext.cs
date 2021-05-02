@@ -25,6 +25,8 @@ namespace BarelyGambling.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<TeamMember>().HasKey(t => new { t.UserId, t.Id,t.TeamId});
+
             modelBuilder.Entity<TeamMember>()
            .Property(b => b.PlayerType)
            .HasDefaultValue(PlayerType.Member);
@@ -89,7 +91,8 @@ namespace BarelyGambling.Infrastructure
                     Place= "Los Angeles"
                 });;
 
-               
+
+                int indexForCreatingUniqueMembersForATeam = 0;
                 //creating teams for tournamentrs
                 for (int j = 1; j < 3; j++)
                 {
@@ -112,8 +115,9 @@ namespace BarelyGambling.Infrastructure
                         {
                             Id = Guid.NewGuid(),
                             TeamId = teamGuid,
-                            UserId = userIds[i]
+                            UserId = userIds[indexForCreatingUniqueMembersForATeam]
                         });
+                        indexForCreatingUniqueMembersForATeam=indexForCreatingUniqueMembersForATeam+1;
                     }
 
                 }

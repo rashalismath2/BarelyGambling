@@ -15,6 +15,8 @@ namespace BarelyGambling.API.Dto
         public DateTime StartingDate { get; set; }
         public float TournamentPrize { get; set; }
         public DateTime CreatedAt { get; set; }
+        public bool HasEnded { get; set; }
+        public bool HasStarted { get; set; }
         public UserDto User { get; set; }
         public List<TeamDto> Teams { get; set; }
     }
