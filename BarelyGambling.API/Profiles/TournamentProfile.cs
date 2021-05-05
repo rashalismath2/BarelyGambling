@@ -13,6 +13,7 @@ namespace BarelyGambling.API.Profiles
         public TournamentProfile()
         {
             CreateMap<Tournament, TournamentDto>();
+            CreateMap<TournamentDto, Tournament>();
         }
     }
 }

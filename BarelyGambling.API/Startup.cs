@@ -1,5 +1,6 @@
 using BarelyGambling.Core.Entity;
 using BarelyGambling.Core.Repository;
+using BarelyGambling.Core.Services;
 using BarelyGambling.Infrastructure;
 using BarelyGambling.Infrastructure.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -69,13 +70,15 @@ namespace BarelyGambling.API
                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"])),
                   };
               });
- 
+
 
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<ITournamentRepository, TournamentRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+
+            services.AddScoped<IFileUploadService, FileUploadService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -96,6 +99,7 @@ namespace BarelyGambling.API
                     });
                 });
             }
+            app.UseStaticFiles();
             app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
 

@@ -12,16 +12,18 @@ using System.Threading.Tasks;
 
 namespace BarelyGambling.API.Controllers
 {
-    [Authorize]
+  
     [ApiController]
     [Route("api/tournaments")]
     public class TournamentController : ControllerBase
     {
         private readonly ITournamentRepository _tournamentRepository;
+        private readonly IUserRepository _userRepository;
 
-        public TournamentController(ITournamentRepository tournamentRepository, IMapper mapper)
+        public TournamentController(ITournamentRepository tournamentRepository, IUserRepository userRepository, IMapper mapper)
         {
             this._tournamentRepository = tournamentRepository;
+            this._userRepository = userRepository;
             _mapper = mapper;
         }
 
@@ -48,6 +50,21 @@ namespace BarelyGambling.API.Controllers
 
             TournamentDto tournamentsDtos = _mapper.Map<TournamentDto>(tournament);
             return Ok(tournamentsDtos);
+        }
+
+        [Authorize]
+        [HttpPost(Name ="CreateTournament")]
+        public async Task<IActionResult> CreateTournament(TournamentDto tournamentDto) {
+
+            Tournament tournament = _mapper.Map<Tournament>(tournamentDto);
+            AppUser user = await _userRepository.GetUserByEmail(HttpContext.User.Identity.Name.ToString());
+            tournament.User = user;
+            
+            await _tournamentRepository.CreateTournament(tournament);
+
+            var tournamentToReturn = _mapper.Map<TournamentDto>(tournament);
+
+            return CreatedAtRoute("CreateTournament",new { id= tournament.Id}, tournamentToReturn);
         }
     }
 }

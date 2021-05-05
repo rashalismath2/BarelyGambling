@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,5 +20,6 @@ namespace BarelyGambling.API.Dto
 
         [Required(ErrorMessage = "Password is required")]
         public string Password { get; set; }
+        public IFormFile profilePicture { get; set; }
     }
 }

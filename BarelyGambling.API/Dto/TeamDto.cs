@@ -1,6 +1,7 @@
 ﻿using BarelyGambling.Core.Entity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,7 +10,9 @@ namespace BarelyGambling.API.Dto
     public class TeamDto
     {
         public Guid Id { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Description { get; set; }
         public float Total { get; set; }
         public List<TeamMemberDto> TeamMembers { get; set; }

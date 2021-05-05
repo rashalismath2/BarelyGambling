@@ -13,6 +13,7 @@ namespace BarelyGambling.API.Profiles
         public TeamProfile()
         {
             CreateMap<Team, TeamDto>();
+            CreateMap<TeamDto, Team>();
         }
     }
 }

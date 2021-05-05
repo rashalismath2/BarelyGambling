@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
 using BarelyGambling.API.Dto;
 using BarelyGambling.Core.Entity;
+using BarelyGambling.Core.Exceptions;
+using BarelyGambling.Core.Services;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -22,29 +25,72 @@ namespace BarelyGambling.API.Controllers
     {
         private readonly UserManager<AppUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
+
+        private readonly IFileUploadService _fileUploadService;
         private readonly IConfiguration _configuration;
+        private readonly IWebHostEnvironment _webEnv;
         private readonly IMapper _mapper;
 
         public AuthenticationController(
             UserManager<AppUser> userManager,
             RoleManager<IdentityRole> roleManager,
+            IFileUploadService fileUploadService,
             IConfiguration configuration,
+            IWebHostEnvironment webEnv,
             IMapper mapper)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
+            this._fileUploadService = fileUploadService;
             _configuration = configuration;
+            this._webEnv = webEnv;
             this._mapper = mapper;
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterUserDto model)
+        public async Task<IActionResult> Register([FromForm] RegisterUserDto model)
         {
             var userExists = await userManager.FindByEmailAsync(model.Email);
             if (userExists != null)
                 return Conflict("User already exist with the current email address");
-            
+
+
+            string filePathToSave = $"{_webEnv.WebRootPath}/profile-images/";
+            string savedPath = "";
+            if (model.profilePicture != null)
+            {
+                try
+                {
+                    savedPath = await _fileUploadService.UploadSingleFile(model.profilePicture, filePathToSave);
+                }
+                catch (FileSizeExceededException e)
+                {
+                    ModelState.AddModelError("FileSizeExceededException", e.Message);
+                    return BadRequest(ModelState);
+                }
+                catch (FileExtensionNotFoundException e)
+                {
+                    ModelState.AddModelError("FileExtensionNotFoundException", e.Message);
+                    return BadRequest(ModelState);
+                }
+                catch (FileSavingToTheLocalStorageException e)
+                {
+                    ModelState.AddModelError("FileSavingToTheLocalStorageException", e.Message);
+                    return BadRequest(ModelState);
+                }
+            }
+
             var user = _mapper.Map<AppUser>(model);
+
+            if (!string.IsNullOrEmpty(savedPath))
+            {
+                user.CoverUrl = "http://localhost:5000/profile-images/" + savedPath;
+            }
+            else
+            {
+                user.CoverUrl = "https://via.placeholder.com/150";
+            }
+
             var result = await userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
             {
@@ -52,8 +98,9 @@ namespace BarelyGambling.API.Controllers
                 {
                     ModelState.AddModelError(error.Code, error.Description);
                 }
-                return BadRequest();
+                return BadRequest(ModelState);
             }
+
 
             return CreatedAtRoute("GetUserById", new { Id = user.Id }, _mapper.Map<UserDto>(user)); ;
         }
@@ -92,7 +139,7 @@ namespace BarelyGambling.API.Controllers
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
                     expiration = token.ValidTo,
-                    user= _mapper.Map<UserDto>(user)
+                    user = _mapper.Map<UserDto>(user)
                 });
             }
 
