@@ -17,11 +17,12 @@ namespace BarelyGambling.API.ValidationAttributes
             {
                 foreach (var teamMember in team.TeamMembers)
                 {
-                    if (teamMembers.SingleOrDefault(member => teamMember.UserId == member) != null) 
+                    if (teamMembers.Contains(teamMember.UserId)) 
                         return new ValidationResult("Team members should be unique"); 
                     teamMembers.Add(teamMember.UserId);
                 }
             }
+            //check for valid user id i nthe db
             return ValidationResult.Success;
         }
     }

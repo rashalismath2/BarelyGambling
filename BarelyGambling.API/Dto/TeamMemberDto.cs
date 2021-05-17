@@ -13,6 +13,7 @@ namespace BarelyGambling.API.Dto
         public Guid Id { get; set; }
         [Required]
         public string UserId { get; set; }
+        public UserDto User { get; set; }
         [Required]
         public string PlayerType { get; set; }
         [Required, ForeignKey("TeamId")]
