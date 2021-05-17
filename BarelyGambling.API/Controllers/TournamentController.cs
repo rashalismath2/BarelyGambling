@@ -5,6 +5,7 @@ using BarelyGambling.Core.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,12 @@ namespace BarelyGambling.API.Controllers
   
     [ApiController]
     [Route("api/tournaments")]
+
     public class TournamentController : ControllerBase
     {
         private readonly ITournamentRepository _tournamentRepository;
         private readonly IUserRepository _userRepository;
+        public IMapper _mapper { get; }
 
         public TournamentController(ITournamentRepository tournamentRepository, IUserRepository userRepository, IMapper mapper)
         {
@@ -27,7 +30,6 @@ namespace BarelyGambling.API.Controllers
             _mapper = mapper;
         }
 
-        public IMapper _mapper { get; }
 
   
         [HttpGet]
@@ -40,7 +42,7 @@ namespace BarelyGambling.API.Controllers
             return Ok(tournamentsDtos);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}",Name ="GetTournamentById")]
         public async Task<ActionResult<TournamentDto>> GetById(Guid id) {
             Tournament tournament = await _tournamentRepository.GetById(id);
 
@@ -54,17 +56,34 @@ namespace BarelyGambling.API.Controllers
 
         [Authorize]
         [HttpPost(Name ="CreateTournament")]
-        public async Task<IActionResult> CreateTournament(TournamentDto tournamentDto) {
+        public async Task<IActionResult> CreateTournament([FromBody]TournamentDto tournamentDto) {
 
             Tournament tournament = _mapper.Map<Tournament>(tournamentDto);
-            AppUser user = await _userRepository.GetUserByEmail(HttpContext.User.Identity.Name.ToString());
-            tournament.User = user;
-            
+
+            try
+            {
+                AppUser user = await _userRepository.GetUserByEmail(HttpContext.User.Identity.Name.ToString());
+                tournament.CreatedBy = user.Id;
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500);
+            }
+                  
             await _tournamentRepository.CreateTournament(tournament);
+
+            try
+            {
+               await  _tournamentRepository.Commit();
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500);
+            }
 
             var tournamentToReturn = _mapper.Map<TournamentDto>(tournament);
 
-            return CreatedAtRoute("CreateTournament",new { id= tournament.Id}, tournamentToReturn);
+            return CreatedAtRoute("GetTournamentById",new { id= tournament.Id}, tournamentToReturn);
         }
     }
 }

@@ -20,7 +20,9 @@ namespace BarelyGambling.Core.Entity
         [Required]
         public string Description { get; set; }
         public float Total { get;private set; }
-        public Tournament Tournament { get; set; }
+        [Required]
+        public Guid TournamentId { get; set; }
+        [Required, MinLength(1)]
         public List<TeamMember> TeamMembers { get; set; }
         public List<Bidding> Biddings { get; set; }
         public float BiddingRestrictedTo { get; set; }

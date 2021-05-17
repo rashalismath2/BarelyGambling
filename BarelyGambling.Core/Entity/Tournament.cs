@@ -20,14 +20,16 @@ namespace BarelyGambling.Core.Entity
         public string Place { get; set; }
         [Required]
         public float TournamentPrize { get; set; }
+        [Required]
         public List<Team> Teams { get; set; }
         [Required]
-        public DateTime CreatedAt { get; set; }
+        public string CreatedBy { get; set; }
         [ForeignKey("CreatedBy")]
-        [Required]
         public  AppUser User { get; set; }
         public bool HasEnded { get; set; }
         public bool HasStarted { get; set; }
+        [Required]
+        public DateTime CreatedAt { get; set; }
 
     }
 }

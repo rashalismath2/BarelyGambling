@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BarelyGambling.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210502113604_identity added")]
-    partial class identityadded
+    [Migration("20210511134401_compositekeyforteammembers")]
+    partial class compositekeyforteammembers
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,10 +64,6 @@ namespace BarelyGambling.Infrastructure.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
@@ -181,7 +177,8 @@ namespace BarelyGambling.Infrastructure.Migrations
 
                     b.HasIndex("TeamId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId", "TeamId")
+                        .IsUnique();
 
                     b.ToTable("TeamMember");
                 });
@@ -378,7 +375,7 @@ namespace BarelyGambling.Infrastructure.Migrations
 
             modelBuilder.Entity("BarelyGambling.Core.Entity.Team", b =>
                 {
-                    b.HasOne("BarelyGambling.Core.Entity.Tournament", "Tournament")
+                    b.HasOne("BarelyGambling.Core.Entity.Tournament", null)
                         .WithMany("Teams")
                         .HasForeignKey("TournamentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -387,7 +384,7 @@ namespace BarelyGambling.Infrastructure.Migrations
 
             modelBuilder.Entity("BarelyGambling.Core.Entity.TeamMember", b =>
                 {
-                    b.HasOne("BarelyGambling.Core.Entity.Team", "Team")
+                    b.HasOne("BarelyGambling.Core.Entity.Team", null)
                         .WithMany("TeamMembers")
                         .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.Cascade)

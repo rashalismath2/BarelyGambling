@@ -9,6 +9,7 @@ namespace BarelyGambling.Core.Repository
     public interface IUserRepository
     {
         Task<AppUser> GetUserById(string id);        
+        Task<List<AppUser>> GetAllUsers();        
         Task<AppUser> GetUserByEmail(string email);
     }
 }

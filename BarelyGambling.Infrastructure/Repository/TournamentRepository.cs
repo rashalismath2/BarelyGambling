@@ -18,10 +18,14 @@ namespace BarelyGambling.Infrastructure.Repository
             this._dbContext = dbContext;
         }
 
+        public async Task<int> Commit()
+        {
+            return await _dbContext.SaveChangesAsync();
+        }
+
         public async Task<Tournament> CreateTournament(Tournament tournament)
         {
             await _dbContext.Tournament.AddAsync(tournament);
-            await _dbContext.SaveChangesAsync();
             return tournament;
         }
 

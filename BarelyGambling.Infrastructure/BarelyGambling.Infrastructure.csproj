@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20210505154317_TeamEntityFieldsChanged.cs" />
-    <Compile Remove="Migrations\20210505154317_TeamEntityFieldsChanged.Designer.cs" />
+    <Compile Remove="Migrations\20210511133933_compositekeyforteammembers.cs" />
+    <Compile Remove="Migrations\20210511133933_compositekeyforteammembers.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

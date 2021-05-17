@@ -27,13 +27,15 @@ namespace BarelyGambling.Infrastructure
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<TeamMember>().HasIndex(t => new { t.UserId, t.TeamId }).IsUnique();
+
             modelBuilder.Entity<TeamMember>()
            .Property(b => b.PlayerType)
            .HasDefaultValue(PlayerType.Member);
 
-            modelBuilder.Entity<Tournament>()
-           .HasMany(c => c.Teams)
-           .WithOne(e => e.Tournament);
+            // modelBuilder.Entity<Tournament>()
+            //.HasMany(c => c.Teams)
+            //.WithOne(e => e.Tournament);
 
             //string[] names = { "James", "John", "Robert", "Michael", "William", "David", "Richard", "Joseph", "Thomas", "Charles" };
             //string[] tournaments = {

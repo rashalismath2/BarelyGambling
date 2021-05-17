@@ -47,7 +47,7 @@ namespace BarelyGambling.API.Controllers
             this._mapper = mapper;
         }
 
-        [HttpPost("register")]
+        [HttpPost("register"), DisableRequestSizeLimit]
         public async Task<IActionResult> Register([FromForm] RegisterUserDto model)
         {
             var userExists = await userManager.FindByEmailAsync(model.Email);
@@ -107,7 +107,7 @@ namespace BarelyGambling.API.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login([FromBody] LoginUserDto model)
+        public async Task<IActionResult> Login(LoginUserDto model)
         {
             var user = await userManager.FindByEmailAsync(model.Email);
             if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
@@ -142,8 +142,8 @@ namespace BarelyGambling.API.Controllers
                     user = _mapper.Map<UserDto>(user)
                 });
             }
-
-            return Unauthorized();
+            ModelState.AddModelError("Auth Failed","Authentication was failed!");
+            return Unauthorized(ModelState);
         }
 
     }

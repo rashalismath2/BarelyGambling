@@ -15,6 +15,9 @@ namespace BarelyGambling.API.Dto
         [Required]
         public string Description { get; set; }
         public float Total { get; set; }
+        [Required]
+        public Guid TournamentId { get; set; }
+        [Required, MinLength(1)]
         public List<TeamMemberDto> TeamMembers { get; set; }
         public List<Bidding> Biddings { get; set; }
         public float BiddingRestrictedTo { get; set; }

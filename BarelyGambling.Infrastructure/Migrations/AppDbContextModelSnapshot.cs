@@ -175,7 +175,8 @@ namespace BarelyGambling.Infrastructure.Migrations
 
                     b.HasIndex("TeamId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId", "TeamId")
+                        .IsUnique();
 
                     b.ToTable("TeamMember");
                 });
@@ -372,7 +373,7 @@ namespace BarelyGambling.Infrastructure.Migrations
 
             modelBuilder.Entity("BarelyGambling.Core.Entity.Team", b =>
                 {
-                    b.HasOne("BarelyGambling.Core.Entity.Tournament", "Tournament")
+                    b.HasOne("BarelyGambling.Core.Entity.Tournament", null)
                         .WithMany("Teams")
                         .HasForeignKey("TournamentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -381,7 +382,7 @@ namespace BarelyGambling.Infrastructure.Migrations
 
             modelBuilder.Entity("BarelyGambling.Core.Entity.TeamMember", b =>
                 {
-                    b.HasOne("BarelyGambling.Core.Entity.Team", "Team")
+                    b.HasOne("BarelyGambling.Core.Entity.Team", null)
                         .WithMany("TeamMembers")
                         .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.Cascade)

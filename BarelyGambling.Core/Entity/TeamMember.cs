@@ -12,9 +12,11 @@ namespace BarelyGambling.Core.Entity
         [Key]
         public Guid Id { get; set; }
         [Required]
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
         public AppUser User { get; set; }
-        [Required]
-        public Team Team { get; set; }
+        [Required,ForeignKey("TeamId")]
+        public Guid TeamId { get; set; }
         [Required]
         public PlayerType PlayerType { get; set; }
     }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BarelyGambling.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210502121649_password field removed from user class")]
-    partial class passwordfieldremovedfromuserclass
+    [Migration("20210511122148_entityfieldwereupdated")]
+    partial class entityfieldwereupdated
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -157,8 +157,13 @@ namespace BarelyGambling.Infrastructure.Migrations
 
             modelBuilder.Entity("BarelyGambling.Core.Entity.TeamMember", b =>
                 {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("TeamId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("PlayerType")
@@ -166,18 +171,9 @@ namespace BarelyGambling.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasDefaultValue(1);
 
-                    b.Property<Guid>("TeamId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserId", "TeamId");
 
                     b.HasIndex("TeamId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("TeamMember");
                 });
@@ -374,7 +370,7 @@ namespace BarelyGambling.Infrastructure.Migrations
 
             modelBuilder.Entity("BarelyGambling.Core.Entity.Team", b =>
                 {
-                    b.HasOne("BarelyGambling.Core.Entity.Tournament", "Tournament")
+                    b.HasOne("BarelyGambling.Core.Entity.Tournament", null)
                         .WithMany("Teams")
                         .HasForeignKey("TournamentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -383,7 +379,7 @@ namespace BarelyGambling.Infrastructure.Migrations
 
             modelBuilder.Entity("BarelyGambling.Core.Entity.TeamMember", b =>
                 {
-                    b.HasOne("BarelyGambling.Core.Entity.Team", "Team")
+                    b.HasOne("BarelyGambling.Core.Entity.Team", null)
                         .WithMany("TeamMembers")
                         .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.Cascade)

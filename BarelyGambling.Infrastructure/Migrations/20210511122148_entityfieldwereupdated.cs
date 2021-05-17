@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BarelyGambling.Infrastructure.Migrations
 {
-    public partial class identityadded : Migration
+    public partial class entityfieldwereupdated : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -42,7 +42,6 @@ namespace BarelyGambling.Infrastructure.Migrations
                     AccessFailedCount = table.Column<int>(nullable: false),
                     FirstName = table.Column<string>(nullable: false),
                     LastName = table.Column<string>(nullable: false),
-                    Password = table.Column<string>(nullable: false),
                     CoverUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -166,10 +165,10 @@ namespace BarelyGambling.Infrastructure.Migrations
                     StartingDate = table.Column<DateTime>(nullable: false),
                     Place = table.Column<string>(nullable: false),
                     TournamentPrize = table.Column<float>(nullable: false),
-                    CreatedAt = table.Column<DateTime>(nullable: false),
                     CreatedBy = table.Column<string>(nullable: false),
                     HasEnded = table.Column<bool>(nullable: false),
-                    HasStarted = table.Column<bool>(nullable: false)
+                    HasStarted = table.Column<bool>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -222,39 +221,39 @@ namespace BarelyGambling.Infrastructure.Migrations
                         column: x => x.TeamId,
                         principalTable: "Team",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Bidding_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
                 name: "TeamMember",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
                     UserId = table.Column<string>(nullable: false),
                     TeamId = table.Column<Guid>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false),
                     PlayerType = table.Column<int>(nullable: false, defaultValue: 1)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TeamMember", x => x.Id);
+                    table.PrimaryKey("PK_TeamMember", x => new { x.UserId, x.TeamId });
                     table.ForeignKey(
                         name: "FK_TeamMember_Team_TeamId",
                         column: x => x.TeamId,
                         principalTable: "Team",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_TeamMember_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
@@ -315,11 +314,6 @@ namespace BarelyGambling.Infrastructure.Migrations
                 name: "IX_TeamMember_TeamId",
                 table: "TeamMember",
                 column: "TeamId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TeamMember_UserId",
-                table: "TeamMember",
-                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tournament_CreatedBy",

@@ -14,5 +14,6 @@ namespace BarelyGambling.API.Dto
         public string UserName { get; set; }
         public string CoverUrl { get; set; }
         List<Tournament> Tournaments { get; set; }
+        public bool EmailConfirmed { get; set; }
     }
 }
