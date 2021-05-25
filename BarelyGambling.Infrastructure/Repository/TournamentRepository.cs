@@ -25,13 +25,20 @@ namespace BarelyGambling.Infrastructure.Repository
 
         public async Task<Tournament> CreateTournament(Tournament tournament)
         {
-            await _dbContext.Tournament.AddAsync(tournament);
+            await _dbContext.Tournaments.AddAsync(tournament);
+            return tournament;
+        }
+
+        public async Task<Tournament> UpdateTournament(Tournament tournament)
+        {
+             _dbContext.Tournaments.Update(tournament);
+            await this.Commit();
             return tournament;
         }
 
         public async Task<Tournament> GetById(Guid tournamentId)
         {
-            return await _dbContext.Tournament
+            return await _dbContext.Tournaments.AsNoTracking()
                 .Include(tournament => tournament.User)
                 .Include(tournament => tournament.Teams)
                 .ThenInclude(team => team.TeamMembers)  
@@ -43,7 +50,7 @@ namespace BarelyGambling.Infrastructure.Repository
 
         public async Task<List<Tournament>> Retrieve()
         {
-            return await _dbContext.Tournament
+            return await _dbContext.Tournaments
                 .Include(tournament => tournament.User)
                 .Include(tournament => tournament.Teams)
                 .ToListAsync();

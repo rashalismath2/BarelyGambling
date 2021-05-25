@@ -18,14 +18,17 @@ namespace BarelyGambling.Infrastructure.Repository
             this._dbContext = dbContext;
         }
 
-        public async Task<List<AppUser>> GetAllUsers()
+        public async Task<List<AppUser>> GetAllUsers(string email)
         {
+            if (email != null) {
+                return await _dbContext.Users.Where(user=>user.Email.Contains(email)).Take(5).ToListAsync();
+            }
             return await _dbContext.Users.ToListAsync();
         }
 
         public async Task<AppUser> GetUserByEmail(string email)
         {
-            return await _dbContext.Users.Where(user=>user.Email==email).FirstOrDefaultAsync();
+            return await _dbContext.Users.AsNoTracking().Where(user=>user.Email==email).FirstOrDefaultAsync();
         }
 
         public async Task<AppUser> GetUserById(string id)

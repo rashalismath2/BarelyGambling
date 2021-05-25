@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BarelyGambling.API.Dto;
 using BarelyGambling.Core.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -40,11 +41,12 @@ namespace BarelyGambling.API.Controllers
             }
 
         }
-        [HttpGet]
-        public async Task<ActionResult> GetAllUsers() {
+ 
+        [HttpGet, Authorize]
+        public async Task<ActionResult> GetAllUsers([FromQuery] string email) {
             try
             {
-                var users = await _userRepository.GetAllUsers();
+                var users = await _userRepository.GetAllUsers(email);
                 if (users.Count<1)
                 {
                     return NotFound();

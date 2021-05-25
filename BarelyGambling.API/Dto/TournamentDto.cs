@@ -21,7 +21,6 @@ namespace BarelyGambling.API.Dto
         public DateTime StartingDate { get; set; }
         [Required]
         public float TournamentPrize { get; set; }
-
         public string CreatedBy { get; set; }
         public UserDto User { get; set; }
         [Required, MinLength(2), ValidateCreateTeams]

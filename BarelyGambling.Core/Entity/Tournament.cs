@@ -30,6 +30,14 @@ namespace BarelyGambling.Core.Entity
         public bool HasStarted { get; set; }
         [Required]
         public DateTime CreatedAt { get; set; }
+        public List<Comment> Comments { get; set; }
+        public List<Like> Likes { get; set; }
 
+        public Tournament()
+        {
+            this.Comments = new List<Comment>();
+            this.Likes = new List<Like>();
+            this.Teams = new List<Team>();
+        }
     }
 }

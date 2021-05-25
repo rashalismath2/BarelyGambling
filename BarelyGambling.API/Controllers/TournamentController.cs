@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace BarelyGambling.API.Controllers
 {
-  
+
     [ApiController]
     [Route("api/tournaments")]
 
@@ -31,7 +31,7 @@ namespace BarelyGambling.API.Controllers
         }
 
 
-  
+
         [HttpGet]
         [HttpHead]
         public async Task<ActionResult<IEnumerable<TournamentDto>>> GetAll()
@@ -42,11 +42,13 @@ namespace BarelyGambling.API.Controllers
             return Ok(tournamentsDtos);
         }
 
-        [HttpGet("{id}",Name ="GetTournamentById")]
-        public async Task<ActionResult<TournamentDto>> GetById(Guid id) {
+        [HttpGet("{id}", Name = "GetTournamentById")]
+        public async Task<ActionResult<TournamentDto>> GetById(Guid id)
+        {
             Tournament tournament = await _tournamentRepository.GetById(id);
 
-            if (tournament==null) {
+            if (tournament == null)
+            {
                 return NotFound();
             }
 
@@ -55,9 +57,9 @@ namespace BarelyGambling.API.Controllers
         }
 
         [Authorize]
-        [HttpPost(Name ="CreateTournament")]
-        public async Task<IActionResult> CreateTournament([FromBody]TournamentDto tournamentDto) {
-
+        [HttpPost(Name = "CreateTournament")]
+        public async Task<IActionResult> CreateTournament([FromBody] TournamentDto tournamentDto)
+        {
             Tournament tournament = _mapper.Map<Tournament>(tournamentDto);
 
             try
@@ -69,12 +71,12 @@ namespace BarelyGambling.API.Controllers
             {
                 return StatusCode(500);
             }
-                  
-            await _tournamentRepository.CreateTournament(tournament);
+
 
             try
             {
-               await  _tournamentRepository.Commit();
+                await _tournamentRepository.CreateTournament(tournament);
+                await _tournamentRepository.Commit();
             }
             catch (SqlException ex)
             {
@@ -83,7 +85,43 @@ namespace BarelyGambling.API.Controllers
 
             var tournamentToReturn = _mapper.Map<TournamentDto>(tournament);
 
-            return CreatedAtRoute("GetTournamentById",new { id= tournament.Id}, tournamentToReturn);
+            return CreatedAtRoute("GetTournamentById", new { id = tournament.Id }, tournamentToReturn);
+        }
+
+        [Authorize]
+        [HttpPut("{id}", Name = "UpdateTournament")]
+        public async Task<IActionResult> UpdateTournament([FromBody] TournamentDto tournamentDto)
+        {
+
+            Tournament tournament = _mapper.Map<Tournament>(tournamentDto);
+            AppUser user = null;
+            Tournament oldTournament = null;
+            try
+            {
+                user = await _userRepository.GetUserByEmail(HttpContext.User.Identity.Name.ToString());
+                oldTournament = await _tournamentRepository.GetById(tournament.Id);
+            }
+            catch (SqlException)
+            {
+                return StatusCode(500);
+            }
+
+            var signedInUserCreatedTheTournament = (oldTournament.CreatedBy == user.Id);
+            if (!signedInUserCreatedTheTournament) return StatusCode(403, new JsonResult(new { error = "You are forbidden to update" }));
+
+            try
+            {
+                tournament.CreatedBy = oldTournament.CreatedBy;
+                tournament = await _tournamentRepository.UpdateTournament(tournament);
+            }
+            catch (SqlException ex)
+            {
+                return StatusCode(500);
+            }
+
+            var tournamentToReturn = _mapper.Map<TournamentDto>(tournament);
+
+            return CreatedAtRoute("GetTournamentById", new { id = tournament.Id }, tournamentToReturn);
         }
     }
 }

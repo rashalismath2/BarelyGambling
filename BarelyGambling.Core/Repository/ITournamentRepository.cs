@@ -11,6 +11,7 @@ namespace BarelyGambling.Core.Repository
         Task<List<Tournament>> Retrieve();
         Task<Tournament> GetById(Guid tournamentId);
         Task<Tournament> CreateTournament(Tournament tournament);
+        Task<Tournament> UpdateTournament(Tournament tournament);
         Task<int> Commit();
     }
 }

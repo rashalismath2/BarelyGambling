@@ -14,11 +14,15 @@ namespace BarelyGambling.Core.Entity
         [Required]
         public string LastName { get; set; }
         public string CoverUrl { get; set; }
-        List<Tournament> Tournaments { get; set; }
+        public List<Tournament> Tournaments { get; set; }
+        public List<Comment> Comments { get; set; }
+        public List<Like> Likes { get; set; }
 
         public AppUser()
         {
             Tournaments = new List<Tournament>();
+            Likes = new List<Like>();
+            Comments = new List<Comment>();
         }
     }
 }
