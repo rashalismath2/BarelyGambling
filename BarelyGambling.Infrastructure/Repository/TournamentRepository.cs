@@ -1,4 +1,5 @@
 ﻿using BarelyGambling.Core.Entity;
+using BarelyGambling.Core.Models;
 using BarelyGambling.Core.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -48,12 +49,14 @@ namespace BarelyGambling.Infrastructure.Repository
                 .Where(tournament => tournament.Id == tournamentId).FirstOrDefaultAsync();
         }
 
-        public async Task<List<Tournament>> Retrieve()
+        public async Task<PageList<Tournament>> Retrieve(TournamentResourceParameters parameters)
         {
-            return await _dbContext.Tournaments
+            var collection = _dbContext.Tournaments as IQueryable<Tournament>;
+            collection
                 .Include(tournament => tournament.User)
-                .Include(tournament => tournament.Teams)
-                .ToListAsync();
+                .Include(tournament => tournament.Teams);
+
+            return await PageList<Tournament>.Create(collection,parameters.PageNumber,parameters.PageSize);
         }
     }
 }

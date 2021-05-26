@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BarelyGambling.API.Dto;
 using BarelyGambling.Core.Entity;
+using BarelyGambling.Core.Models;
 using BarelyGambling.Core.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +10,7 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace BarelyGambling.API.Controllers
@@ -32,12 +34,27 @@ namespace BarelyGambling.API.Controllers
 
 
 
-        [HttpGet]
+        [HttpGet(Name ="GetAllTournaments")]
         [HttpHead]
-        public async Task<ActionResult<IEnumerable<TournamentDto>>> GetAll()
+        public async Task<ActionResult<IEnumerable<TournamentDto>>> GetAll([FromQuery] TournamentResourceParameters resourceParameters)
         {
-            List<Tournament> tournaments = await _tournamentRepository.Retrieve();
+            var tournaments = await _tournamentRepository.Retrieve(resourceParameters);
             IEnumerable<TournamentDto> tournamentsDtos = _mapper.Map<IEnumerable<TournamentDto>>(tournaments);
+
+            var nextPageLink = tournaments.HasNext ? CreateTournamentResouceUri(resourceParameters,ResourceUriType.NextPage) : null;
+            var previousPageLink = tournaments.HasPrevious ? CreateTournamentResouceUri(resourceParameters, ResourceUriType.PreviousPage) : null;
+
+            var metaData = new
+            {
+                TotalCount = tournaments.Count,
+                PageSize = tournaments.PageSize,
+                CurrentPage = tournaments.CurrentPage,
+                TotalPages = tournaments.TotalPages,
+                NextPage = nextPageLink,
+                PreviousPage = previousPageLink
+            };
+
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(metaData));
 
             return Ok(tournamentsDtos);
         }
@@ -122,6 +139,30 @@ namespace BarelyGambling.API.Controllers
             var tournamentToReturn = _mapper.Map<TournamentDto>(tournament);
 
             return CreatedAtRoute("GetTournamentById", new { id = tournament.Id }, tournamentToReturn);
+        }
+
+        private string CreateTournamentResouceUri(TournamentResourceParameters parameters,ResourceUriType uriType) {
+
+            switch (uriType)
+            {
+                case ResourceUriType.NextPage:
+                    return Url.Link("GetAllTournaments",new { 
+                       pageNumer=parameters.PageNumber+1,
+                       pageSize=parameters.PageSize
+                    });
+                case ResourceUriType.PreviousPage:
+                    return Url.Link("GetAllTournaments", new
+                    {
+                        pageNumer = parameters.PageNumber- 1,
+                        pageSize = parameters.PageSize
+                    });
+                default:
+                    return Url.Link("GetAllTournaments", new
+                    {
+                        pageNumer = parameters.PageNumber,
+                        pageSize = parameters.PageSize
+                    });
+            }
         }
     }
 }
